@@ -22,7 +22,7 @@ def get_post(post_id):
 # Function to get total of posts
 def get_total_posts():
     connection = get_db_connection()
-    post = connection.execute('SELECT count(*) FROM posts',).fetchone()
+    post = connection.execute('SELECT count(title) FROM posts').fetchone()
     connection.close()
     return post
 
@@ -38,7 +38,7 @@ def status():
             status=200,
             mimetype='application/json'
     )
-    app.logger.info('Status request successfull')
+    app.logger.info('Status request successful')
     return response
 
 # Define Metrics endpoint endpoint
@@ -46,11 +46,11 @@ def status():
 def metrics():
     posts = get_total_posts()
     response = app.response_class(
-            response=json.dumps({"db_connection_count": 1, "post_count": posts }),
+            response=json.dumps({"db_connection_count": 1, "post_count": posts[0]}),
             status=200,
             mimetype='application/json'
     )
-
+    app.logger.info('Metrics request successful')
     return response
 
 # Define the main route of the web application 
@@ -98,8 +98,8 @@ def create():
 
 # start the application on port 3111
 if __name__ == "__main__":
-   logging.basicConfig(format='%(asctime)s %(levelname)s {%(module)s} [%(funcName)s] %(message)s',
-                        datefmt='%Y-%m-%d,%H:%M:%S:%f', filename='app.log', level=logging.DEBUG)
+    #logging.basicConfig(format='%(asctime)s %(levelname)s {%(module)s} [%(funcName)s] %(message)s',
+    #                     datefmt='%Y-%m-%d,%H:%M:%S:%f', filename='app.log', level=logging.DEBUG)
    #logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-
-   app.run(host='0.0.0.0', port='3111')
+   logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', filename='app.log',level=logging.DEBUG)
+   app.run(host='0.0.0.0', port='3111', debug = True)
