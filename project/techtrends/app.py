@@ -1,4 +1,5 @@
 import sqlite3
+import logging
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -18,6 +19,13 @@ def get_post(post_id):
     connection.close()
     return post
 
+# Function to get total of posts
+def get_total_posts():
+    connection = get_db_connection()
+    post = connection.execute('SELECT count(*) FROM posts',).fetchone()
+    connection.close()
+    return post
+
 # Define the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
@@ -27,6 +35,18 @@ app.config['SECRET_KEY'] = 'your secret key'
 def status():
     response = app.response_class(
             response=json.dumps({"result":"OK - healthy"}),
+            status=200,
+            mimetype='application/json'
+    )
+    app.logger.info('Status request successfull')
+    return response
+
+# Define Metrics endpoint endpoint
+@app.route('/metrics')
+def metrics():
+    posts = get_total_posts()
+    response = app.response_class(
+            response=json.dumps({"db_connection_count": 1, "post_count": posts }),
             status=200,
             mimetype='application/json'
     )
@@ -78,4 +98,8 @@ def create():
 
 # start the application on port 3111
 if __name__ == "__main__":
+   logging.basicConfig(format='%(asctime)s %(levelname)s {%(module)s} [%(funcName)s] %(message)s',
+                        datefmt='%Y-%m-%d,%H:%M:%S:%f', filename='app.log', level=logging.DEBUG)
+   #logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+
    app.run(host='0.0.0.0', port='3111')
