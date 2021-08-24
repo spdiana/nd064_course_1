@@ -23,7 +23,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 
 # Define Healthcheck endpoint
-@app.route('/status')
+@app.route('/healthz')
 def status():
     response = app.response_class(
             response=json.dumps({"result":"OK - healthy"}),
