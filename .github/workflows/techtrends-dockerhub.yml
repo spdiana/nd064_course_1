@@ -36,8 +36,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
       -
         name: Build and push
-          id: docker_build
-          uses: docker/build-push-action@v2
-          with:
-            push: true
-            tags: 124545/mytrend-repo:latest
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./project/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: 124545/mytrend-repo:latest
