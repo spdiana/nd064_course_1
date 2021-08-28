@@ -8,4 +8,43 @@ docker run -d -p 7111:3111 python-techtrends
 docker logs a453c5cc55a3a1b
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+# ls
+README.md    app.log  database.db  my_checklist.txt  schema.sql  templates
+__init__.py  app.py   init_db.py   requirements.txt  static
+# cat app.log
+08/24/2021 04:47:42 PM  * Restarting with stat
+08/24/2021 04:47:43 PM  * Debugger is active!
+08/24/2021 04:47:43 PM  * Debugger PIN: 101-915-507
+08/24/2021 04:47:44 PM  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+08/24/2021 04:47:44 PM  * Running on http://192.168.1.111:3111/ (Press CTRL+C to quit)
+08/24/2021 04:48:03 PM Status request successfull
+08/24/2021 04:48:03 PM 192.168.1.111 - - [24/Aug/2021 16:48:03] "GET /healthz HTTP/1.1" 200 -
+08/24/2021 04:48:07 PM Metrics request successfull
+08/24/2021 04:48:07 PM 192.168.1.111 - - [24/Aug/2021 16:48:07] "GET /metrics HTTP/1.1" 200 -
+08/24/2021 04:48:37 PM  * Detected change in 'C:\\Users\\PC\\Documents\\nd064_course_1\\project\\techtrends\\app.py', reloading
+08/24/2021 04:48:37 PM  * Restarting with stat
+08/24/2021 04:48:38 PM  * Debugger is active!
+08/24/2021 04:48:38 PM  * Debugger PIN: 101-915-507
+08/24/2021 04:48:39 PM  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+08/24/2021 04:48:39 PM  * Running on http://192.168.1.111:3111/ (Press CTRL+C to quit)
+08/28/2021 04:33:02 PM  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+08/28/2021 04:33:02 PM  * Restarting with stat
+08/28/2021 04:33:02 PM  * Debugger is active!
+08/28/2021 04:33:02 PM  * Debugger PIN: 274-455-217
+08/28/2021 04:33:05 PM 172.17.0.1 - - [28/Aug/2021 16:33:05] "GET / HTTP/1.1" 200 -
+08/28/2021 04:33:10 PM Article "2020 CNCF Annual Report" retrieved!
+08/28/2021 04:33:10 PM 172.17.0.1 - - [28/Aug/2021 16:33:10] "GET /1 HTTP/1.1" 200 -
+08/28/2021 04:33:13 PM About Us" page is retrieved
+08/28/2021 04:33:13 PM 172.17.0.1 - - [28/Aug/2021 16:33:13] "GET /about HTTP/1.1" 200 -
+08/28/2021 04:33:16 PM Article "KubeCon + CloudNativeCon 2021" retrieved!
+08/28/2021 04:33:16 PM 172.17.0.1 - - [28/Aug/2021 16:33:16] "GET /2 HTTP/1.1" 200 -
+08/28/2021 04:33:22 PM Metrics request successful, "4" total_db_connections, "6" post_count
+08/28/2021 04:33:22 PM 172.17.0.1 - - [28/Aug/2021 16:33:22] "GET /metrics HTTP/1.1" 200 -
+08/28/2021 04:33:26 PM 172.17.0.1 - - [28/Aug/2021 16:33:26] "GET /create HTTP/1.1" 200 -
+08/28/2021 04:33:33 PM Article "Project post" saved!
+08/28/2021 04:33:33 PM 172.17.0.1 - - [28/Aug/2021 16:33:33] "POST /create HTTP/1.1" 302 -
+08/28/2021 04:33:33 PM 172.17.0.1 - - [28/Aug/2021 16:33:33] "GET / HTTP/1.1" 200 -
+08/28/2021 04:33:43 PM Metrics request successful, "7" total_db_connections, "7" post_count
+08/28/2021 04:33:43 PM 172.17.0.1 - - [28/Aug/2021 16:33:43] "GET /metrics HTTP/1.1" 200 -
