@@ -1,11 +1,22 @@
 ## Docker commands used to build the application
 docker build -t python-techtrends .
+docker build -t python-techtrends:latest .
 
 ## Docker commands used to run the application
 docker run -d -p 7111:3111 python-techtrends
+docker run -d -p 7111:3111 python-techtrends:latest
 
 ## Docker commands used to get the application logs
 docker logs a453c5cc55a3a1b
+
+##doc
+docker tag python-techtrends 124545/mytrend-repo:python-techtrends_v1.0.0
+docker push 124545/mytrend-repo:python-techtrends_v1.0.0
+
+docker tag python-techtrends 124545/mytrend-repo:latest
+docker push 124545/mytrend-repo:latest
+
+
 
 ## Logs from the container running the TechTrends application
 # ls
