@@ -9,3 +9,5 @@ spec:
     - protocol: TCP
       port: 4111
       targetPort: 3111
+  selector:
+    app: python-techtrends

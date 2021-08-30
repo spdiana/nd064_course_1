@@ -1,7 +1,2 @@
-## namespace
-kubectl create -f namespace.yaml
-## deployment
-kubectl apply -f deployment.yaml
-#kubectl expose deploy python-techtrends --port=4111 --target-port=3111
-## service
-kubectl create -f service.yaml
+
+kubectl get secret -n argocd argocd-secret -o yaml

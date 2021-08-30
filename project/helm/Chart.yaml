@@ -1,0 +1,9 @@
+apiVersion: v1
+name: python-techtrends
+description: Install a Python HelloWorld deployment
+keywords:
+- techtrends
+version: 1.0.0
+maintainers:
+- name: diana
+  email: infodi2006@gmail.com
