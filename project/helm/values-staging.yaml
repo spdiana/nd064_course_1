@@ -1,8 +1,8 @@
 namespace:
-  name: prod
+  name: stagging
 
 service:
-  port: 7111
+  port: 5111
   targetPort: 3111
   protocol: TCP
   type: ClusterIP
@@ -12,15 +12,15 @@ image:
   tag: latest
   imagePullPolicy: IfNotPresent
 
-replicaCount: 5
+replicaCount: 3
 
 resources:
   requests:
-    cpu: 350m
-    memory: 128Mi
+    cpu: 300m
+    memory: 90Mi
   limits:
     cpu: 500m
-    memory: 256Mi
+    memory: 128Mi
 
 containerPort: 3111
 

@@ -12,15 +12,15 @@ image:
   tag: latest
   imagePullPolicy: IfNotPresent
 
-replicaCount: 1
+replicaCount: 5
 
 resources:
   requests:
-    cpu: 250m
-    memory: 64Mi
+    cpu: 350m
+    memory: 128Mi
   limits:
     cpu: 500m
-    memory: 128Mi
+    memory: 256Mi
 
 containerPort: 3111
 

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-techtrends-staging
+  name: techtrends-staging
   namespace: argocd
 spec:
   destination:
